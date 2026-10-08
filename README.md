@@ -79,7 +79,7 @@ The simplest Claude Desktop setup that passes your key is the local proxy. Edit 
 }
 ```
 
-The package isn't on npm yet, so `npx` installs it from GitHub. The first start takes a little longer because it builds once.
+The package isn't on npm yet, so `npx` installs it from GitHub. The first start takes a little longer because it builds once. If `npx` exits right away on an old system npm (Debian's packaged npm 9.2 does this with GitHub packages), run `npm install -g github:jiangqizheng/vaneform-mcp` and use `"command": "vaneform-mcp"` with no args.
 
 ### Codex
 

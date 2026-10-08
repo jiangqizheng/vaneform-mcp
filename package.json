@@ -1,0 +1,61 @@
+{
+  "name": "vaneform-mcp",
+  "version": "0.1.0",
+  "description": "MCP server, CLI and agent skill for Vaneform website traffic lookups (Similarweb estimates) and domain compares.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "website-traffic",
+    "seo",
+    "competitor-research",
+    "claude",
+    "agent-skills"
+  ],
+  "homepage": "https://vaneform.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangqizheng/vaneform-mcp.git"
+  },
+  "bugs": "https://github.com/jiangqizheng/vaneform-mcp/issues",
+  "license": "MIT",
+  "author": "qizheng (https://vaneform.com)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "vaneform-mcp": "dist/bin/vaneform-mcp.js",
+    "vaneform": "dist/bin/vaneform.js"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "lint": "biome check . && tsc --noEmit",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "pretest": "npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@types/node": "^20.19.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -40,7 +40,7 @@ export class VaneformError extends Error {
   }
 }
 
-/** Browser report link. Guests get 3 lookups a day there and free accounts 30. */
+/** Browser report link. Guests get 3 lookups a day there and free accounts 999. */
 export function guestLookupUrl(domain: string): string {
   return `${VANEFORM_ORIGIN}/?q=${encodeURIComponent(domain.trim())}`
 }
@@ -71,13 +71,13 @@ export function browserUrl(tool: string, args: Record<string, unknown> = {}): st
 }
 
 function browserLine(tool: string, args: Record<string, unknown>): string {
-  return `Check it in a browser instead: ${browserUrl(tool, args)} (3 free lookups a day without an account, 30 with a free account).`
+  return `Check it in a browser instead: ${browserUrl(tool, args)} (3 free lookups a day without an account, 999 with a free account).`
 }
 
 export function missingKeyMessage(tool: string, args: Record<string, unknown> = {}): string {
   return [
     'VANEFORM_API_KEY is not set, so this tool cannot call the Vaneform API.',
-    `Create a free account and an API key at ${SIGN_UP_URL} (the free plan includes 100 API points a month; a new domain costs 1 point).`,
+    `API access is included with Pro. Create an API key at ${SIGN_UP_URL} (domain lookups cost no points).`,
     browserLine(tool, args),
   ].join('\n')
 }
@@ -89,10 +89,12 @@ export function hintForErrorCode(code: string, tool: string, args: Record<string
     case 'invalid_api_key':
       return `The API key was missing or rejected. Create or rotate a key at ${SIGN_UP_URL}. ${browserLine(tool, args)}`
     case 'credits_exhausted':
-      return `API points are used up for this month. More points come with Pro: ${PRICING_URL}. ${browserLine(tool, args)}`
+      return `Keyword points are used up for this month (${PRICING_URL}). ${browserLine(tool, args)}`
     case 'lookup_limit_exceeded':
     case 'lookup_rate_exceeded':
       return `Lookup limit reached; wait and retry. Higher limits: ${PRICING_URL}. ${browserLine(tool, args)}`
+    case 'api_requires_pro':
+      return `The Vaneform API is included with Pro: ${PRICING_URL}. ${browserLine(tool, args)}`
     case 'search_requires_pro':
     case 'pro_required':
       return `This is a Pro feature: ${PRICING_URL}`

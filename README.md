@@ -24,9 +24,9 @@ These tool names and descriptions come from the hosted server's `tools/list`:
 
 | Tool | What it does | Cost |
 | --- | --- | --- |
-| `lookup_domain` | Cached snapshot of a domain: visits (full-site or search), registry, site profile, link-rank popularity | 1 point per new domain |
-| `compare_bulk` | Side-by-side visits and registry for several domains; fetches traffic when it is missing | 1 point per new domain |
-| `compare_tld` | One name across suffixes (default `com,ai,io`) | 1 point per new domain |
+| `lookup_domain` | Cached snapshot of a domain: visits (full-site or search), registry, site profile, link-rank popularity | 0 points |
+| `compare_bulk` | Side-by-side visits and registry for several domains; fetches traffic when it is missing | 0 points |
+| `compare_tld` | One name across suffixes (default `com,ai,io`) | 0 points |
 | `get_account` | Plan and remaining points | free |
 | `lookup_keyword` | US keyword brief: volume, difficulty, CPC, Google occupancy (Pro) | 4 points on a cache miss |
 
@@ -34,10 +34,10 @@ These tool names and descriptions come from the hosted server's `tools/list`:
 
 Discovery (`initialize`, `tools/list`) is open. **Tool calls need a Vaneform API key.**
 
-1. Create a free account and key at [vaneform.com/account/api](https://vaneform.com/account/api). The free plan includes 100 API points a month. Repeats of the same domain within 24 hours don't cost points.
+1. The API is included with Vaneform Pro. Create a key at [vaneform.com/account/api](https://vaneform.com/account/api). Domain lookups and compares cost no points; each key allows 60 requests a minute and 5,000 a day (429 `lookup_rate_exceeded` above that). Pro's 1,000 monthly points pay only for keyword data (`lookup_keyword`, keyword rankings).
 2. Pass the key as `Authorization: Bearer vf_live_…` (remote) or `VANEFORM_API_KEY` (local server and CLI).
 
-If no key is set, tools still list. A call returns a sign-up link and a browser link such as `https://vaneform.com/?q=notion.so`, where you get 3 free lookups a day without an account (30 with a free account). When points run out, the error points to [pricing](https://vaneform.com/pricing).
+If no key is set, tools still list. A call returns a sign-up link and a browser link such as `https://vaneform.com/?q=notion.so`, where you get 3 free lookups a day without an account (999 with a free account). When points run out, the error points to [pricing](https://vaneform.com/pricing).
 
 ## Install
 
@@ -118,8 +118,8 @@ compare_tld     Compare the same registrable name across suffixes.
 
 $ vaneform github.com
 VANEFORM_API_KEY is not set, so this tool cannot call the Vaneform API.
-Create a free account and an API key at https://vaneform.com/account/api (the free plan includes 100 API points a month; a new domain costs 1 point).
-Check it in a browser instead: https://vaneform.com/?q=github.com (3 free lookups a day without an account, 30 with a free account).
+API access is included with Pro. Create an API key at https://vaneform.com/account/api (domain lookups cost no points).
+Check it in a browser instead: https://vaneform.com/?q=github.com (3 free lookups a day without an account, 999 with a free account).
 ```
 
 With a key, `vaneform <domain>` prints visits, MoM change, rank, top countries, sources, registry dates and the report link, followed by `Data: Vaneform (data: Similarweb estimates)`.

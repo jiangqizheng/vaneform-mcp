@@ -17,8 +17,8 @@ Options
   --version   Show the version
 
 Environment
-  VANEFORM_API_KEY   API key (vf_live_…). Create one with a free account: ${SIGN_UP_URL}
-                     Without it, the CLI prints a browser link (3 free lookups a day, 30 signed in).`
+  VANEFORM_API_KEY   API key (vf_live_…). Included with Pro: ${SIGN_UP_URL}
+                     Without it, the CLI prints a browser link (3 free lookups a day, 999 signed in).`
 
 type Out = { stdout: (text: string) => void; stderr: (text: string) => void }
 

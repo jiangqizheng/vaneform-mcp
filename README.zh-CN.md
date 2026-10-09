@@ -13,9 +13,9 @@
 
 ## API Key
 
-`initialize` 和 `tools/list` 不需要 Key，调用工具需要。在 [vaneform.com/account/api](https://vaneform.com/account/api) 注册免费账号并创建 Key。免费版每月 100 个 API 点数，每个新域名 1 点，24 小时内重复查询同一域名不扣点。
+`initialize` 和 `tools/list` 不需要 Key，调用工具需要。API 属于 Vaneform Pro，在 [vaneform.com/account/api](https://vaneform.com/account/api) 创建 Key。查网站和对比不扣点；每个 Key 每分钟 60 次、每天 5000 次，超出返回 429 `lookup_rate_exceeded`。Pro 每月 1000 点只用于关键词数据（`lookup_keyword`、关键词排名）。
 
-没有 Key 时，工具仍会列出，但调用会返回注册链接和网页查询链接（如 `https://vaneform.com/?q=notion.so`）。未登录每天可免费查 3 次，登录免费账号每天 30 次。
+没有 Key 时，工具仍会列出，但调用会返回注册链接和网页查询链接（如 `https://vaneform.com/?q=notion.so`）。未登录每天可免费查 3 次，登录免费账号每天 999 次。
 
 ## 安装
 

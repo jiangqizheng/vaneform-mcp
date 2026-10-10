@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.jiangqizheng/vaneform-mcp",
+  "title": "Vaneform",
+  "description": "Website traffic (Similarweb estimates), registry facts and domain compares for AI agents.",
+  "version": "1.4.0",
+  "websiteUrl": "https://vaneform.com/docs/api",
+  "repository": {
+    "url": "https://github.com/jiangqizheng/vaneform-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://vaneform.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer vf_live_... API key (Pro plan) from https://vaneform.com/account/api",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

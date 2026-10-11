@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/jiangqizheng/vaneform-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/jiangqizheng/vaneform-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/jiangqizheng/vaneform-mcp)
 
 Website traffic lookups for AI assistants and the terminal. This repo has an MCP server, a small CLI and an agent skill for [Vaneform](https://vaneform.com), a free website traffic checker.
 

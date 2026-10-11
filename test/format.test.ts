@@ -32,7 +32,7 @@ describe('format', () => {
     expect(text).toContain('United States 42.0%')
     expect(text).toMatch(/direct 60\.0% · search 30\.0%/)
     expect(text).toContain('created 1995-08-14')
-    expect(text).toContain('Data: Vaneform (data: Similarweb estimates)')
+    expect(text).toContain('Data: Vaneform (third-party traffic estimates)')
   })
 
   it('explains a missing snapshot', () => {

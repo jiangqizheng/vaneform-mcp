@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.jiangqizheng/vaneform-mcp",
   "title": "Vaneform",
-  "description": "Website traffic (Similarweb estimates), registry facts and domain compares for AI agents.",
-  "version": "1.4.0",
+  "description": "Free website traffic checker: monthly visits, traffic sources, top countries and domain compares.",
+  "version": "1.4.1",
   "websiteUrl": "https://vaneform.com/docs/api",
   "repository": {
     "url": "https://github.com/jiangqizheng/vaneform-mcp",

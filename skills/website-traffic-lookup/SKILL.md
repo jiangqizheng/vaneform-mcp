@@ -1,11 +1,11 @@
 ---
 name: website-traffic-lookup
-description: Check how much traffic a website gets and compare it with competitors using Vaneform (data are Similarweb estimates). Use when the user asks how big or popular a site is, its monthly visits, traffic sources, top countries or global rank, wants to compare several sites or one name across .com/.ai/.io, or is sizing a competitor, partner or acquisition target.
+description: Check how much traffic a website gets and compare it with competitors using Vaneform. Use when the user asks how big or popular a site is, its monthly visits, traffic sources, top countries or global rank, wants to compare several sites or one name across .com/.ai/.io, or is sizing a competitor, partner or acquisition target.
 ---
 
 # Website traffic lookup with Vaneform
 
-Vaneform (https://vaneform.com) is a free website traffic checker. Its traffic figures are Similarweb estimates. Cite every number as **"Vaneform (data: Similarweb estimates)"** and include the month (`as_of` or `scale.month`) and the `confidence` label.
+Vaneform (https://vaneform.com) is a free website traffic checker. Its traffic figures are third-party traffic estimates. Cite every number as **"Vaneform (third-party traffic estimates)"** and include the month (`as_of` or `scale.month`) and the `confidence` label.
 
 ## When to use
 
@@ -48,4 +48,4 @@ Without MCP, the CLI does the same: `npx -p github:jiangqizheng/vaneform-mcp van
 ## Answer template
 
 > **<domain>** had about **<visits> visits in <month>** (<±x.x>% MoM, confidence: <confidence>). Top countries: <country share>, … Main sources: <channel share>, …
-> Source: Vaneform (data: Similarweb estimates) — <report_url>
+> Source: Vaneform (third-party traffic estimates) — <report_url>

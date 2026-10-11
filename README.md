@@ -5,7 +5,7 @@
 
 Website traffic lookups for AI assistants and the terminal. This repo has an MCP server, a small CLI and an agent skill for [Vaneform](https://vaneform.com), a free website traffic checker.
 
-Ask your assistant "how much traffic does notion.so get?" or "compare figma.com and canva.com" and it answers with estimated monthly visits, month-over-month change, rank, top countries, traffic sources and registry facts. Traffic figures are **Similarweb estimates**; see the [Vaneform methodology](https://vaneform.com/methodology).
+Ask your assistant "how much traffic does notion.so get?" or "compare figma.com and canva.com" and it answers with estimated monthly visits, month-over-month change, rank, top countries, traffic sources and registry facts. Traffic figures are **third-party traffic estimates**; see the [Vaneform methodology](https://vaneform.com/methodology).
 
 [中文说明](README.zh-CN.md)
 
@@ -122,7 +122,7 @@ API access is included with Pro. Create an API key at https://vaneform.com/accou
 Check it in a browser instead: https://vaneform.com/?q=github.com (3 free lookups a day without an account, 999 with a free account).
 ```
 
-With a key, `vaneform <domain>` prints visits, MoM change, rank, top countries, sources, registry dates and the report link, followed by `Data: Vaneform (data: Similarweb estimates)`.
+With a key, `vaneform <domain>` prints visits, MoM change, rank, top countries, sources, registry dates and the report link, followed by `Data: Vaneform (third-party traffic estimates)`.
 
 ## Talk to the hosted server directly
 
@@ -151,7 +151,7 @@ For other agents that read `SKILL.md` folders, put it in that agent's skills dir
 
 - `status: "missing"` means Vaneform hasn't cached that domain yet. It does not mean zero traffic. `compare_bulk` fetches it.
 - Every estimate carries its month (`as_of`) and a `confidence` label. Quote them.
-- Cite results as "Vaneform (data: Similarweb estimates)".
+- Cite results as "Vaneform (third-party traffic estimates)".
 
 ## Development
 
@@ -166,4 +166,4 @@ The runtime has no dependencies and needs Node 18 or newer. This repo contains o
 
 ## License
 
-[MIT](LICENSE). The license covers this code only, not data returned by the API. Traffic figures are Similarweb estimates served by [Vaneform](https://vaneform.com).
+[MIT](LICENSE). The license covers this code only, not data returned by the API. Traffic figures are third-party estimates served by [Vaneform](https://vaneform.com).

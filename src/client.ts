@@ -6,8 +6,8 @@
 export const VANEFORM_ORIGIN = 'https://vaneform.com'
 export const DEFAULT_MCP_URL = `${VANEFORM_ORIGIN}/mcp`
 export const REMOTE_PROTOCOL_VERSION = '2025-03-26'
-export const ATTRIBUTION = 'Vaneform (data: Similarweb estimates)'
-export const VERSION = '0.1.0'
+export const ATTRIBUTION = 'Vaneform (third-party traffic estimates)'
+export const VERSION = '0.1.1'
 
 export type ToolDefinition = {
   name: string

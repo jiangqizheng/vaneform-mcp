@@ -1,7 +1,7 @@
 {
   "name": "vaneform-mcp",
-  "version": "0.1.0",
-  "description": "MCP server, CLI and agent skill for Vaneform website traffic lookups (Similarweb estimates) and domain compares.",
+  "version": "0.1.1",
+  "description": "MCP server, CLI and agent skill for Vaneform website traffic lookups (third-party estimates) and domain compares.",
   "keywords": [
     "mcp",
     "mcp-server",

@@ -1,6 +1,6 @@
 # vaneform-mcp（中文）
 
-让 AI 助手和终端直接查询网站流量。本仓库为免费网站流量查询工具 [Vaneform](https://vaneform.com) 提供 MCP 服务器、命令行工具和 Agent Skill。流量数据为 **Similarweb 估算值**，算法说明见 [方法论](https://vaneform.com/methodology)。
+让 AI 助手和终端直接查询网站流量。本仓库为免费网站流量查询工具 [Vaneform](https://vaneform.com) 提供 MCP 服务器、命令行工具和 Agent Skill。流量数据为 **第三方流量估算值**，算法说明见 [方法论](https://vaneform.com/methodology)。
 
 ## 包含内容
 
@@ -49,6 +49,6 @@ npx -p github:jiangqizheng/vaneform-mcp vaneform notion.so
 
 - `status: "missing"` 表示该域名还没有缓存快照，流量尚未读取。用 `compare_bulk` 可以拉取流量。
 - 每个估算值都带月份（`as_of`）和置信度（`confidence`）。
-- 引用格式：Vaneform（数据：Similarweb 估算）。
+- 引用格式：Vaneform（数据：第三方流量估算）。
 
 许可证：[MIT](LICENSE)，仅覆盖本仓库代码。

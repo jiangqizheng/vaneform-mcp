@@ -8,7 +8,7 @@ Usage
   vaneform compare <domain> <domain>…   Compare sites side by side (fetches missing traffic)
   vaneform tld <name> [--suffixes com,ai,io]
                                         Compare one name across suffixes
-  vaneform account                      Plan and remaining API points (free)
+  vaneform account                      Plan and remaining credits (free)
   vaneform tools                        List the hosted MCP tools
 
 Options
@@ -17,8 +17,8 @@ Options
   --version   Show the version
 
 Environment
-  VANEFORM_API_KEY   API key (vf_live_…). Included with Pro: ${SIGN_UP_URL}
-                     Without it, the CLI prints a browser link (3 free lookups a day, 999 signed in).`
+  VANEFORM_API_KEY   API key (vf_live_…). Free accounts get 100 credits a month: ${SIGN_UP_URL}
+                     Lookups and compares cost 1 credit per domain. Without a key, the CLI prints a browser link.`
 
 type Out = { stdout: (text: string) => void; stderr: (text: string) => void }
 

@@ -25,20 +25,34 @@ These tool names and descriptions come from the hosted server's `tools/list`:
 
 | Tool | What it does | Cost |
 | --- | --- | --- |
-| `lookup_domain` | Cached snapshot of a domain: visits (full-site or search), registry, site profile, link-rank popularity | 0 points |
-| `compare_bulk` | Side-by-side visits and registry for several domains; fetches traffic when it is missing | 0 points |
-| `compare_tld` | One name across suffixes (default `com,ai,io`) | 0 points |
-| `get_account` | Plan and remaining points | free |
-| `lookup_keyword` | US keyword brief: volume, difficulty, CPC, Google occupancy (Pro) | 4 points on a cache miss |
+| `lookup_domain` | Cached snapshot of a domain: visits (full-site or search), registry, site profile, link-rank popularity | 1 credit |
+| `compare_bulk` | Side-by-side visits and registry for several domains; fetches traffic when it is missing | 1 credit per domain |
+| `compare_tld` | One name across suffixes (default `com,ai,io`) | 1 credit per domain |
+| `get_account` | Plan and remaining credits | free |
+| `lookup_keyword` | US keyword brief: volume, difficulty, CPC, Google occupancy (Pro) | 60 credits |
 
-## API key
+Repeating a domain lookup within 24 hours is free. Site keyword rankings (Pro, 200 credits) are available through the [API](https://vaneform.com/docs/api) with `include=search`.
+
+## Free vs Pro
+
+| | Free | Pro |
+| --- | --- | --- |
+| Credits per month | 100 | 10,000 |
+| API key, MCP and CLI | ✓ | ✓ |
+| Domain lookup and compare (1 credit per domain, repeats within 24h free) | ✓ | ✓ |
+| Keyword brief (60 credits) | | ✓ |
+| Site keyword rankings (200 credits) | | ✓ |
+
+Each key allows 60 requests a minute and 5,000 a day (429 `lookup_rate_exceeded` above that). See [pricing](https://vaneform.com/pricing).
+
+## Get a free API key
 
 Discovery (`initialize`, `tools/list`) is open. **Tool calls need a Vaneform API key.**
 
-1. The API is included with Vaneform Pro. Create a key at [vaneform.com/account/api](https://vaneform.com/account/api). Domain lookups and compares cost no points; each key allows 60 requests a minute and 5,000 a day (429 `lookup_rate_exceeded` above that). Pro's 1,000 monthly points pay only for keyword data (`lookup_keyword`, keyword rankings).
-2. Pass the key as `Authorization: Bearer vf_live_…` (remote) or `VANEFORM_API_KEY` (local server and CLI).
+1. Sign in at [vaneform.com](https://vaneform.com) and create a key at [vaneform.com/account/api](https://vaneform.com/account/api). A free account is enough.
+2. Remote: send `Authorization: Bearer vf_live_…` or `X-API-Key: vf_live_…`. Local server and CLI: set `VANEFORM_API_KEY`.
 
-If no key is set, tools still list. A call returns a sign-up link and a browser link such as `https://vaneform.com/?q=notion.so`, where you get 3 free lookups a day without an account (999 with a free account). When points run out, the error points to [pricing](https://vaneform.com/pricing).
+Without a key, tools still list, and a call returns a sign-up link plus a browser link such as `https://vaneform.com/?q=notion.so`.
 
 ## Install
 
@@ -91,7 +105,7 @@ codex mcp add vaneform --url https://vaneform.com/mcp --bearer-token-env-var VAN
 
 ### Any other MCP client
 
-- Remote: URL `https://vaneform.com/mcp`, transport Streamable HTTP, header `Authorization: Bearer vf_live_…`
+- Remote: URL `https://vaneform.com/mcp`, transport Streamable HTTP, header `Authorization: Bearer vf_live_…` (or `X-API-Key: vf_live_…`)
 - Local: command `npx -y github:jiangqizheng/vaneform-mcp`, env `VANEFORM_API_KEY`
 
 ## CLI
@@ -103,24 +117,24 @@ export VANEFORM_API_KEY=vf_live_…
 vaneform notion.so                       # traffic overview
 vaneform compare notion.so coda.io       # side by side
 vaneform tld vaneform --suffixes com,ai,io
-vaneform account                         # remaining points (free)
+vaneform account                         # plan and remaining credits (free)
 vaneform notion.so --json                # raw API JSON
 ```
 
-Real output against production on 2026-10-08, with no key set:
+Output with no key set:
 
 ```text
 $ vaneform tools
 lookup_domain   Read a cached Vaneform domain snapshot: scale (full-site or search visits), registry, site profile, and link-rank popularity.
-get_account     Read the caller plan, website lookup allowance, and point balance.
+get_account     Read the caller plan, website lookup allowance, and credit balance.
 lookup_keyword  Read a US/EN keyword brief: monthly searches, difficulty, CPC, and Google occupancy.
 compare_bulk    Compare domains side by side.
 compare_tld     Compare the same registrable name across suffixes.
 
 $ vaneform github.com
 VANEFORM_API_KEY is not set, so this tool cannot call the Vaneform API.
-API access is included with Pro. Create an API key at https://vaneform.com/account/api (domain lookups cost no points).
-Check it in a browser instead: https://vaneform.com/?q=github.com (3 free lookups a day without an account, 999 with a free account).
+Create a free API key at https://vaneform.com/account/api (100 credits a month; 1 credit per domain).
+Check it in a browser instead: https://vaneform.com/?q=github.com
 ```
 
 With a key, `vaneform <domain>` prints visits, MoM change, rank, top countries, sources, registry dates and the report link, followed by `Data: Vaneform (third-party traffic estimates)`.

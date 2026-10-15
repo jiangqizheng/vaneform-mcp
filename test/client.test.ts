@@ -39,9 +39,9 @@ describe('VaneformClient', () => {
     expect(remote.requests[0]?.auth).toBe('Bearer vf_live_test')
   })
 
-  it('adds a hint when points run out', async () => {
+  it('adds a hint when credits run out', async () => {
     remote = await startFakeRemote(() => ({
-      text: JSON.stringify({ error: { code: 'credits_exhausted', message: 'Points are used up for this billing period.' } }),
+      text: JSON.stringify({ error: { code: 'credits_exhausted', message: 'Credits are used up for this billing period.' } }),
       isError: true,
     }))
     const client = new VaneformClient({ endpoint: remote.url, apiKey: 'vf_live_test' })

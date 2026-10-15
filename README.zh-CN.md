@@ -9,13 +9,25 @@
 - **`vaneform` 命令行**：`vaneform notion.so`、`vaneform compare a.com b.com`、`vaneform tld 名称`
 - **[`skills/website-traffic-lookup`](skills/website-traffic-lookup/SKILL.md)**：告诉 AI 助手什么时候查流量、怎么解读和引用结果
 
-工具：`lookup_domain`（域名缓存快照：访问量、环比、排名、国家、来源、注册信息）、`compare_bulk`（多站对比）、`compare_tld`（同名不同后缀对比）、`get_account`（剩余点数，不扣点）、`lookup_keyword`（关键词，Pro）。
+工具：`lookup_domain`（域名缓存快照：访问量、环比、排名、国家、来源、注册信息）、`compare_bulk`（多站对比）、`compare_tld`（同名不同后缀对比）、`get_account`（套餐和剩余积分，免费）、`lookup_keyword`（关键词简报，Pro）。
 
-## API Key
+## Free 与 Pro
 
-`initialize` 和 `tools/list` 不需要 Key，调用工具需要。API 属于 Vaneform Pro，在 [vaneform.com/account/api](https://vaneform.com/account/api) 创建 Key。查网站和对比不扣点；每个 Key 每分钟 60 次、每天 5000 次，超出返回 429 `lookup_rate_exceeded`。Pro 每月 1000 点只用于关键词数据（`lookup_keyword`、关键词排名）。
+| | Free | Pro |
+| --- | --- | --- |
+| 每月积分 | 100 | 10,000 |
+| API Key、MCP、命令行 | ✓ | ✓ |
+| 查网站和对比（每个域名 1 积分，24 小时内重复查询免费） | ✓ | ✓ |
+| 关键词简报（60 积分） | | ✓ |
+| 网站关键词排名（200 积分） | | ✓ |
 
-没有 Key 时，工具仍会列出，但调用会返回注册链接和网页查询链接（如 `https://vaneform.com/?q=notion.so`）。未登录每天可免费查 3 次，登录免费账号每天 999 次。
+每个 Key 每分钟 60 次、每天 5000 次，超出返回 429 `lookup_rate_exceeded`。详见 [定价](https://vaneform.com/pricing)。
+
+## 获取免费 API Key
+
+`initialize` 和 `tools/list` 不需要 Key，调用工具需要。在 [vaneform.com](https://vaneform.com) 登录后，到 [vaneform.com/account/api](https://vaneform.com/account/api) 创建 Key，免费账号即可。远程端点可用 `Authorization: Bearer vf_live_…` 或 `X-API-Key: vf_live_…`；本地服务器和命令行设置 `VANEFORM_API_KEY`。
+
+没有 Key 时，工具仍会列出，调用会返回注册链接和网页查询链接（如 `https://vaneform.com/?q=notion.so`）。
 
 ## 安装
 

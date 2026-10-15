@@ -22,11 +22,11 @@ If the `vaneform` MCP server is connected (hosted `https://vaneform.com/mcp` or 
 
 | Tool | Use it for | Cost |
 | --- | --- | --- |
-| `get_account` | Plan and remaining API points. Call it before a batch. | 0 points |
-| `lookup_domain` `{domain}` | Cached snapshot: visits, MoM change, rank, countries, sources, registry, site profile. | 0 points |
-| `compare_bulk` `{q: "a.com,b.com"}` | Side-by-side visits and registry. Fetches traffic when it is missing. Up to 30 domains. | 0 points |
-| `compare_tld` `{q: "name", s: "com,ai,io"}` | One name across suffixes. | 0 points |
-| `lookup_keyword` `{q}` | US keyword brief (Pro only). | 4 points on a cache miss |
+| `get_account` | Plan and remaining credits. Call it before a batch. | free |
+| `lookup_domain` `{domain}` | Cached snapshot: visits, MoM change, rank, countries, sources, registry, site profile. | 1 credit (repeat within 24h free) |
+| `compare_bulk` `{q: "a.com,b.com"}` | Side-by-side visits and registry. Fetches traffic when it is missing. Up to 30 domains. | 1 credit per domain |
+| `compare_tld` `{q: "name", s: "com,ai,io"}` | One name across suffixes. | 1 credit per domain |
+| `lookup_keyword` `{q}` | US keyword brief (Pro only). | 60 credits |
 
 Without MCP, the CLI does the same: `npx -p github:jiangqizheng/vaneform-mcp vaneform example.com` (add `compare a.com b.com`, `tld name`, `--json`).
 
@@ -40,9 +40,9 @@ Without MCP, the CLI does the same: `npx -p github:jiangqizheng/vaneform-mcp van
 
 ## Errors and limits
 
-- No API key (`VANEFORM_API_KEY` unset or `unauthorized`): the API is included with Pro; keys are at https://vaneform.com/account/api. A Free account key returns `api_requires_pro`. Meanwhile they can check a site in the browser at `https://vaneform.com/?q=<domain>` (3 free lookups a day without an account, 999 with a free account).
+- No API key (`VANEFORM_API_KEY` unset or `unauthorized`): a free account key works (100 credits a month, 1 credit per domain); create one at https://vaneform.com/account/api. Meanwhile they can check a site in the browser at `https://vaneform.com/?q=<domain>`.
 - `lookup_rate_exceeded`: the key passed 60 requests a minute or 5,000 a day; wait for Retry-After.
-- `credits_exhausted`: the month's keyword points are used up. Point to https://vaneform.com/pricing or the browser link.
+- `credits_exhausted`: the month's credits are used up (Free 100, Pro 10,000). Point to https://vaneform.com/pricing or the browser link.
 - `search_requires_pro` / `pro_required`: Pro-only feature.
 
 ## Answer template

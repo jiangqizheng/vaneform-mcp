@@ -21,7 +21,7 @@ type JsonRpcResponse = {
 const INSTRUCTIONS = [
   'Vaneform answers "how much traffic does this website get?" and "how do these sites compare?".',
   'lookup_domain reads a cached snapshot (status=missing means not cached yet, never zero traffic);',
-  'compare_bulk and compare_tld fetch traffic when it is missing; get_account shows remaining points and spends none.',
+  'compare_bulk and compare_tld fetch traffic when it is missing; lookups and compares cost 1 credit per domain (repeats within 24h free); get_account shows remaining credits and spends none.',
   `Quote as_of and confidence, and attribute figures to ${ATTRIBUTION}.`,
 ].join(' ')
 

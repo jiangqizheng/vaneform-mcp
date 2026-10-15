@@ -82,7 +82,9 @@ export function formatDomain(payload: unknown): string {
   const lines: (string | null)[] = [`${str(body.domain) ?? '?'}  [${str(body.status) ?? 'unknown'}]`]
   if (body.status === 'missing') {
     lines.push('  Not cached yet (this is not zero traffic).')
-    lines.push(`  Run \`vaneform compare ${str(body.domain) ?? '<domain>'}\` to fetch traffic (0 points), or open it on vaneform.com.`)
+    lines.push(
+      `  Run \`vaneform compare ${str(body.domain) ?? '<domain>'}\` to fetch traffic (1 credit per domain), or open it on vaneform.com.`,
+    )
   }
   lines.push(
     row('Visits', visitsLine(scale)),
@@ -131,7 +133,7 @@ export function formatAccount(payload: unknown): string {
   return [
     `Plan: ${str(body.plan) ?? '?'}`,
     credits
-      ? `API points: ${num(credits.remaining) ?? '?'} left of ${num(credits.limit) ?? '?'} (resets ${str(credits.resets_at) ?? '?'})`
+      ? `Credits: ${num(credits.remaining) ?? '?'} left of ${num(credits.limit) ?? '?'} (resets ${str(credits.resets_at) ?? '?'})`
       : null,
     lookup ? `Website lookups today: ${num(lookup.remaining) ?? 'unlimited'} left` : null,
   ]

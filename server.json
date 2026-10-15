@@ -3,7 +3,7 @@
   "name": "io.github.jiangqizheng/vaneform-mcp",
   "title": "Vaneform",
   "description": "Free website traffic checker: monthly visits, traffic sources, top countries and domain compares.",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "websiteUrl": "https://vaneform.com/docs/api",
   "repository": {
     "url": "https://github.com/jiangqizheng/vaneform-mcp",
@@ -16,7 +16,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "Bearer vf_live_... API key (Pro plan) from https://vaneform.com/account/api",
+          "description": "Bearer vf_live_... API key (free account works) from https://vaneform.com/account/api. X-API-Key is also accepted.",
           "isRequired": true,
           "isSecret": true
         }
